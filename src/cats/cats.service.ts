@@ -7,7 +7,7 @@ export interface Cat {
 
 @Injectable()
 export class CatsService {
-  private readonly cats: Cat[] = [];
+  private readonly cats: Cat[] = [{ name: 'InitialOnlyCatName', id: 0 }];
 
   create(name: Cat['name']) {
     const newCat = { name, id: this.cats.length };
