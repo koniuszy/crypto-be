@@ -1,0 +1,38 @@
+# Editors
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env
+
+# Testing
+coverage/
+reports/
+cypress/videos/*
+cypress/screenshots/*
+junit.xml
+
+# Dependencies
+node_modules/
+
+# Cache
+cache/
+tmp/
+
+
+# Next.js
+.next/
+
+# Other
+public/
+.node-version
+.env.local
+dist/
