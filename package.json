@@ -6,8 +6,6 @@
     "dev": "nest start --watch",
     "build": "nest build",
     "start:prod": "node dist/main",
-    "prestart:prod": "rimraf dist && npm run build",
-    "postinstall": "npm run prestart:prod",
     "heroku-postbuild":"yarn install --only=dev --no-shrinkwrap && yarn build",
     "test": "jest",
     "test:watch": "jest --watch",

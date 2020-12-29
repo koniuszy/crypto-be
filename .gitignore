@@ -36,3 +36,4 @@ public/
 .node-version
 .env.local
 dist/
+dist
