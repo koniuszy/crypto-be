@@ -6,7 +6,7 @@
     "dev": "nest start --watch",
     "build": "nest build",
     "start:prod": "node dist/main",
-    "heroku-postbuild":"yarn install --only=dev --no-shrinkwrap && yarn build",
+    "heroku-postbuild":"yarn build",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
