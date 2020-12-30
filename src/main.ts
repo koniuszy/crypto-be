@@ -5,7 +5,26 @@ import * as helmet from 'helmet';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
 
-  // app.use(helmet());
+  const defaultDirectives = helmet.contentSecurityPolicy.getDefaultDirectives();
+
+  const directives =
+    process.env.NODE === 'production'
+      ? defaultDirectives
+      : {
+          ...defaultDirectives,
+
+          // for /graphql playground
+          'script-src': ["'self'", 'cdn.jsdelivr.net', "'unsafe-inline'"],
+          'img-src': ["'self'", 'cdn.jsdelivr.net', 'data:'],
+        };
+
+  app.use(
+    helmet({
+      contentSecurityPolicy: {
+        directives,
+      },
+    }),
+  );
 
   await app.listen(process.env.PORT || 5000);
 }
