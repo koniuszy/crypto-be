@@ -24,7 +24,6 @@ export class CatsController {
       });
     }
 
-    this.catsService.create(body.name);
     return this.catsService.create(body.name);
   }
 }

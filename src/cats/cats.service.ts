@@ -11,7 +11,10 @@ export class CatsService {
 
   create(name: Cat['name']) {
     const newCat = { name, id: this.cats.length };
+    if (this.cats.length > 10) return null;
+
     this.cats.push(newCat);
+
     return newCat;
   }
 
