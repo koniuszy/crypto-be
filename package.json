@@ -6,6 +6,7 @@
     "dev": "nest start --watch",
     "build": "nest build",
     "start:prod": "node dist/main",
+    "serve": "yarn run start:prod",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",

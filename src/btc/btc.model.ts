@@ -9,5 +9,8 @@ export class BTC {
   usdValue: number;
 
   @Field()
+  date: string;
+
+  @Field()
   bestMarket: 'binance' | 'coinbase' | 'coindesk';
 }

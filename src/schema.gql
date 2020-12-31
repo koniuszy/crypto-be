@@ -5,6 +5,7 @@
 type BTC {
   amount: Int!
   bestMarket: String!
+  date: String!
   usdValue: Int!
 }
 
