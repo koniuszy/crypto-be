@@ -8,7 +8,7 @@ export class BTCService {
       amount,
       bestMarket: 'binance',
       usdValue: 100,
-      date: new Date().toString(),
+      date: new Date().toLocaleTimeString(),
     };
   }
 }
