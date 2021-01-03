@@ -4,17 +4,17 @@
 
 type BestMarket {
   name: String!
-  usdValue: Int!
+  usdValue: Float!
 }
 
 type BTC {
   bestAsksMarket: BestMarket!
   bestBidsMarket: BestMarket!
-  btcAmount: Int!
+  btcAmount: Float!
   date: String!
   errorMessageList: [String!]!
 }
 
 type Query {
-  btcMarketData(amount: Int!): BTC!
+  btcMarketData(amount: Float!): BTC!
 }

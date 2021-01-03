@@ -1,4 +1,4 @@
-import { Resolver, Int, Query, Args } from '@nestjs/graphql';
+import { Resolver, Query, Args, Float } from '@nestjs/graphql';
 
 import { BTCService } from './btc.service';
 import { BTC } from './btc.model';
@@ -8,7 +8,7 @@ export class BTCResolver {
   constructor(private BTCService: BTCService) {}
 
   @Query(() => BTC)
-  async btcMarketData(@Args('amount', { type: () => Int }) amount: number) {
+  async btcMarketData(@Args('amount', { type: () => Float }) amount: number) {
     return this.BTCService.getMarketData(amount);
   }
 }

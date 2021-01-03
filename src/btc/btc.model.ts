@@ -1,4 +1,4 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql';
+import { Field, Float, ObjectType } from '@nestjs/graphql';
 import { MarketNames } from './types';
 
 @ObjectType()
@@ -6,7 +6,7 @@ class BestMarket {
   @Field()
   name: MarketNames;
 
-  @Field(() => Int)
+  @Field(() => Float)
   usdValue: number;
 }
 
@@ -15,7 +15,7 @@ export class BTC {
   @Field()
   date: string;
 
-  @Field(() => Int)
+  @Field(() => Float)
   btcAmount: number;
 
   @Field(() => [String])
