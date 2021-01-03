@@ -1,16 +1,28 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
+import { MarketNames } from './types';
 
 @ObjectType()
-export class BTC {
-  @Field(() => Int)
-  amount: number;
+class BestMarket {
+  @Field()
+  name: MarketNames;
 
   @Field(() => Int)
   usdValue: number;
+}
 
+@ObjectType()
+export class BTC {
   @Field()
   date: string;
 
+  @Field(() => Int)
+  btcAmount: number;
+
+  @Field(() => [String])
+  errorMessageList: string[];
+
   @Field()
-  bestMarket: 'binance' | 'coinbase' | 'coindesk';
+  bestBidsMarket: BestMarket;
+  @Field()
+  bestAsksMarket: BestMarket;
 }

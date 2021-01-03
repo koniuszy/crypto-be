@@ -2,11 +2,17 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type BTC {
-  amount: Int!
-  bestMarket: String!
-  date: String!
+type BestMarket {
+  name: String!
   usdValue: Int!
+}
+
+type BTC {
+  bestAsksMarket: BestMarket!
+  bestBidsMarket: BestMarket!
+  btcAmount: Int!
+  date: String!
+  errorMessageList: [String!]!
 }
 
 type Query {

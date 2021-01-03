@@ -1,9 +1,14 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
 import * as helmet from 'helmet';
 
+import { AppModule } from './app.module';
+
+global.fetch = require('node-fetch');
+
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, { cors: true });
+  const app = await NestFactory.create(AppModule, {
+    cors: true,
+  });
 
   const defaultDirectives = helmet.contentSecurityPolicy.getDefaultDirectives();
 
