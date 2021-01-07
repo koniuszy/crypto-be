@@ -1,6 +1,19 @@
 import { MarketData, MarketNames } from '../types';
 import { getOrderBookValues } from './helpers';
 
+/* SAMPLES
+bids = [[31412.26, 0.40318347]];
+asks = [[32851.15, 0.01332502]];
+*/
+
+type PricePerOne = number;
+type Amount = number;
+
+type BibtayResources = {
+  bids: [PricePerOne, Amount][];
+  asks: [PricePerOne, Amount][];
+};
+
 async function getBitbayData({
   btcAmount,
 }: {
@@ -10,7 +23,7 @@ async function getBitbayData({
     'https://bitbay.net/API/Public/BTC/orderbook.json',
   );
 
-  const { bids, asks } = await response.json();
+  const { bids, asks }: BibtayResources = await response.json();
 
   const [usdBidsValue, btcSumBids] = getOrderBookValues({
     btcAmount,

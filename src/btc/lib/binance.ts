@@ -1,6 +1,19 @@
 import { MarketData, MarketNames } from '../types';
 import { getOrderBookValues } from './helpers';
 
+/* SAMPLES
+binanceBids = [['33610.34000000', '0.20000000']]
+binanceAsks = [['33610.35000000', '0.00000600']]
+*/
+
+type PricePerOne = string;
+type Amount = string;
+
+type BinanceResources = {
+  bids: [PricePerOne, Amount][];
+  asks: [PricePerOne, Amount][];
+};
+
 function getOrderBookLimit({
   btcAmount,
   retry,
@@ -33,7 +46,7 @@ async function getBinanceData({
   url.searchParams.append('symbol', 'BTCUSDT');
 
   const response = await fetch(url.toString());
-  const { bids, asks } = await response.json();
+  const { bids, asks }: BinanceResources = await response.json();
 
   const [usdBidsValue, btcSumBids] = getOrderBookValues({
     btcAmount,

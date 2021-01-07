@@ -13,12 +13,12 @@ export function getErrorMessageList({
     ({ btcSumAsks, btcSumBids, name, usdAsksValue, usdBidsValue }) => {
       if (btcAmount > btcSumAsks)
         errorMessageList.push(
-          `${name}-market could fetch data only for ${btcSumAsks} asks for the price ${usdAsksValue}`,
+          `${name}-market could fetch data only for ${btcSumAsks} BTC asks for ${usdAsksValue} $`,
         );
 
       if (btcAmount > btcSumBids)
         errorMessageList.push(
-          `${name}-market could fetch data only for ${btcSumBids} bids for the price ${usdBidsValue}`,
+          `${name}-market could fetch data only for ${btcSumBids} BTC bids for ${usdBidsValue} $`,
         );
     },
   );
@@ -29,6 +29,9 @@ export function getErrorMessageList({
 export function getOrderBookValues({
   btcAmount,
   orderBookValueList,
+}: {
+  btcAmount: number;
+  orderBookValueList: string[][] | number[][];
 }): [number, number] {
   let usdValue = 0;
   let btcSum = 0;
@@ -48,7 +51,7 @@ export function getOrderBookValues({
     if (!shouldContinue) {
       const missingAmount = btcAmount - btcSum;
       btcSum += missingAmount;
-      usdValue += ((missingAmount * amount) / 100) * price;
+      usdValue += missingAmount * price;
     }
   }
 
