@@ -3,8 +3,8 @@
 # ------------------------------------------------------
 
 type BestMarket {
-  name: String!
-  usdValue: Float!
+  name: String
+  usdValue: Float
 }
 
 type BTC {

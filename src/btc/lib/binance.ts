@@ -21,10 +21,9 @@ function getOrderBookLimit({
   btcAmount: number;
   retry: number;
 }): string {
-  const limitList = [20, 50, 100, 500, 1000, 5000];
+  const limitList = [50, 100, 500, 1000, 5000];
   let limitIndex = 0;
 
-  if (btcAmount > 100) limitIndex = 5;
   if (btcAmount > 50) limitIndex = 4;
   if (btcAmount > 25) limitIndex = 3;
   if (btcAmount >= 5) limitIndex = 2;

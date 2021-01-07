@@ -3,10 +3,10 @@ import { MarketNames } from './types';
 
 @ObjectType()
 class BestMarket {
-  @Field()
+  @Field({ nullable: true })
   name: MarketNames;
 
-  @Field(() => Float)
+  @Field(() => Float, { nullable: true })
   usdValue: number;
 }
 

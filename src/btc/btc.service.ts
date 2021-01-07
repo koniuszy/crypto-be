@@ -37,12 +37,12 @@ export class BTCService {
       btcAmount,
       errorMessageList,
       bestBidsMarket: {
-        name: bestBidsMarket.name,
-        usdValue: bestBidsMarket.usdBidsValue,
+        name: bestBidsMarket ? bestBidsMarket.name : null,
+        usdValue: bestBidsMarket ? bestBidsMarket.usdBidsValue : null,
       },
       bestAsksMarket: {
-        name: bestAsksMarket.name,
-        usdValue: bestAsksMarket.usdAsksValue,
+        name: bestAsksMarket ? bestAsksMarket.name : null,
+        usdValue: bestAsksMarket ? bestAsksMarket.usdAsksValue : null,
       },
     };
   }
