@@ -56,7 +56,7 @@ async function getBinanceData({
     orderBookValueList: asks,
   });
 
-  if ((btcSumAsks < btcAmount || btcSumAsks < btcAmount) && limit !== '5000') {
+  if ((btcSumAsks < btcAmount || btcSumBids < btcAmount) && limit !== '5000') {
     return await getBinanceData({ btcAmount, retry: retry + 1 });
   }
 
