@@ -1,7 +1,7 @@
 service: crypto-be
 
 plugins:
-  - serverless-offline
+  # - serverless-offline
   # - serverless-plugin-optimize
   # - serverless-plugin-warmup
 
