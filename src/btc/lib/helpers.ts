@@ -5,7 +5,7 @@ function thousandSeparate(number: number) {
 }
 
 function prettifyNumber(number: number, toFixed?: number) {
-  return thousandSeparate(Number(number.toFixed(toFixed ?? 2))).replace(
+  return thousandSeparate(Number(number.toFixed(toFixed || 2))).replace(
     '.',
     ',',
   );
