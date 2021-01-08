@@ -13,5 +13,5 @@
     "incremental": true
   },
   "exclude": ["node_modules", "dist", ".build"],
-  "include": ["src"]
+  "include": ["src", "serverless.ts"]
 }
