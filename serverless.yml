@@ -14,6 +14,7 @@ plugins:
 provider:
   name: aws
   runtime: nodejs12.x
+  region: eu-central-1
   lambdaHashingVersion: 20201221
   apiGateway:
     shouldStartNameWithService: true
@@ -23,7 +24,7 @@ package:
 
 functions:
   main:
-    handler: src/main.handler
+    handler: src/serverless.handler
     events:
       - http:
           method: any
