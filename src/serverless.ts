@@ -24,6 +24,5 @@ export async function handler(
     const server = await bootstrap();
     cachedServer = server;
   }
-  console.log({ event, context });
   return proxy(cachedServer, event, context, 'PROMISE').promise;
 }

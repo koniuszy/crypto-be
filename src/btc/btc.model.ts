@@ -7,7 +7,7 @@ class BestMarket {
   name: MarketNames;
 
   @Field(() => Float, { nullable: true })
-  usdValue: number;
+  usdValue: number | null;
 }
 
 @ObjectType()

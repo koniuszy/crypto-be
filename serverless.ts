@@ -1,5 +1,4 @@
 // plugins:
-// serverless-offline
 // serverless-plugin-optimize
 // serverless-plugin-warmup
 
@@ -7,6 +6,11 @@ import type { AWS } from '@serverless/typescript';
 
 const serverlessConfiguration: AWS = {
   service: 'crypto-be',
+  package: {
+    individually: true,
+    exclude: ['node_modules/typescript/**', 'node_modules/@types/**'],
+  },
+  plugins: ['serverless-offline'],
   provider: {
     name: 'aws',
     runtime: 'nodejs12.x',
@@ -16,15 +20,14 @@ const serverlessConfiguration: AWS = {
       shouldStartNameWithService: true,
     },
   },
-  package: { individually: true },
   functions: {
     main: {
       handler: 'src/serverless.handler',
       events: [
         {
           http: {
-            method: 'any',
-            path: 'graphql',
+            path: '/',
+            method: 'POST',
           },
         },
       ],
