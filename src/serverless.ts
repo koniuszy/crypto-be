@@ -26,6 +26,7 @@ async function bootstrap(): Promise<Server> {
   const expressApp = express();
 
   const app = await createApp(expressApp);
+  app.enableCors();
   await app.init();
 
   return createServer(expressApp);
