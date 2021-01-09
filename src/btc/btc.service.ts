@@ -26,11 +26,12 @@ export class BTCService {
     const bidsData = data.filter(({ btcSumBids }) => btcSumBids === btcAmount);
     const asksData = data.filter(({ btcSumAsks }) => btcSumAsks === btcAmount);
 
-    bidsData.sort((a, b) => b.usdBidsValue - a.usdBidsValue);
-    asksData.sort((a, b) => a.usdAsksValue - b.usdAsksValue);
-
-    const [bestBidsMarket] = asksData;
-    const [bestAsksMarket] = asksData;
+    const [bestBidsMarket] = bidsData.sort(
+      (a, b) => b.usdBidsValue - a.usdBidsValue,
+    );
+    const [bestAsksMarket] = asksData.sort(
+      (a, b) => a.usdAsksValue - b.usdAsksValue,
+    );
 
     return {
       date,
