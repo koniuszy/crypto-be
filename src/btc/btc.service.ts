@@ -38,12 +38,14 @@ export class BTCService {
       errorMessageList,
       bestBidsMarket: {
         name: bestBidsMarket ? bestBidsMarket.name : null,
-        usdValue: bestBidsMarket ? bestBidsMarket.usdBidsValue : null,
+        usdValue: bestBidsMarket ? bestBidsMarket.usdBidsValue : 0,
       },
-      bestAsksMarket: {
-        name: bestAsksMarket ? bestAsksMarket.name : null,
-        usdValue: bestAsksMarket ? bestAsksMarket.usdAsksValue : null,
-      },
+      // bestAsksMarket: {
+      //   name: bestAsksMarket ? bestAsksMarket.name : null,
+      //   usdValue: bestAsksMarket ? bestAsksMarket.usdAsksValue : null,
+      // },
+      // bestBidsMarket: bestBidsMarket ? bestBidsMarket.name : 'null',
+      bestAsksMarket: bestAsksMarket ? bestAsksMarket.name : 'null',
     };
   }
 }

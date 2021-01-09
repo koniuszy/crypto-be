@@ -3,16 +3,22 @@
 # ------------------------------------------------------
 
 type BestMarket {
-  name: String
-  usdValue: Float
+  name: MarketNames
+  usdValue: Float!
 }
 
 type BTC {
-  bestAsksMarket: BestMarket!
+  bestAsksMarket: String!
   bestBidsMarket: BestMarket!
   btcAmount: Float!
   date: String!
   errorMessageList: [String!]!
+}
+
+enum MarketNames {
+  binance
+  bitbay
+  coinbase
 }
 
 type Query {

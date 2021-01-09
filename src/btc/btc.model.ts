@@ -3,11 +3,11 @@ import { MarketNames } from './types';
 
 @ObjectType()
 class BestMarket {
-  @Field({ nullable: true })
+  @Field(() => MarketNames, { nullable: true })
   name: MarketNames;
 
-  @Field(() => Float, { nullable: true })
-  usdValue: number | null;
+  @Field(() => Float)
+  usdValue: number;
 }
 
 @ObjectType()
@@ -21,8 +21,9 @@ export class BTC {
   @Field(() => [String])
   errorMessageList: string[];
 
-  @Field()
+  @Field(() => BestMarket)
   bestBidsMarket: BestMarket;
+
   @Field()
-  bestAsksMarket: BestMarket;
+  bestAsksMarket: string;
 }

@@ -1,9 +1,24 @@
+import { NestFactory } from '@nestjs/core';
+import { ExpressAdapter } from '@nestjs/platform-express';
+import { INestApplication } from '@nestjs/common';
+
 import { Server } from 'http';
-import { Context, APIGatewayProxyEvent } from 'aws-lambda';
 import * as express from 'express';
+import { Context, APIGatewayProxyEvent } from 'aws-lambda';
 import { createServer, proxy, Response } from 'aws-serverless-express';
 
-import { createApp } from './app';
+import { AppModule } from './app.module';
+
+export async function createApp(
+  expressApp: express.Express,
+): Promise<INestApplication> {
+  const app = await NestFactory.create(
+    AppModule,
+    new ExpressAdapter(expressApp),
+  );
+
+  return app;
+}
 
 let cachedServer: Server;
 
@@ -24,5 +39,6 @@ export async function handler(
     const server = await bootstrap();
     cachedServer = server;
   }
+
   return proxy(cachedServer, event, context, 'PROMISE').promise;
 }
