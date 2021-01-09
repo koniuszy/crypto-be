@@ -28,6 +28,7 @@ const serverlessConfiguration: AWS = {
           http: {
             path: 'graphql',
             method: 'POST',
+            cors: true,
           },
         },
       ],
