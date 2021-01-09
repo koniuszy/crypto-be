@@ -2,14 +2,11 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type BestMarket {
-  name: MarketNames
-  usdValue: Float!
-}
-
 type BTC {
-  bestAsksMarket: String!
-  bestBidsMarket: BestMarket!
+  asksUsdValue: Float
+  bestAsksMarketName: MarketNames
+  bestBidsMarketName: MarketNames
+  bidsUsdValue: Float
   btcAmount: Float!
   date: String!
   errorMessageList: [String!]!

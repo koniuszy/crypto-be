@@ -36,16 +36,10 @@ export class BTCService {
       date,
       btcAmount,
       errorMessageList,
-      bestBidsMarket: {
-        name: bestBidsMarket ? bestBidsMarket.name : null,
-        usdValue: bestBidsMarket ? bestBidsMarket.usdBidsValue : 0,
-      },
-      // bestAsksMarket: {
-      //   name: bestAsksMarket ? bestAsksMarket.name : null,
-      //   usdValue: bestAsksMarket ? bestAsksMarket.usdAsksValue : null,
-      // },
-      // bestBidsMarket: bestBidsMarket ? bestBidsMarket.name : 'null',
-      bestAsksMarket: bestAsksMarket ? bestAsksMarket.name : 'null',
+      bestBidsMarketName: bestBidsMarket ? bestBidsMarket.name : null,
+      bestAsksMarketName: bestAsksMarket ? bestAsksMarket.name : null,
+      bidsUsdValue: bestBidsMarket ? bestBidsMarket.usdBidsValue : null,
+      asksUsdValue: bestAsksMarket ? bestAsksMarket.usdAsksValue : null,
     };
   }
 }

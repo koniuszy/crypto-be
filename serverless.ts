@@ -26,8 +26,8 @@ const serverlessConfiguration: AWS = {
       events: [
         {
           http: {
-            path: '{proxy+}',
-            method: 'any',
+            path: 'graphql',
+            method: 'POST',
           },
         },
       ],

@@ -2,15 +2,6 @@ import { Field, Float, ObjectType } from '@nestjs/graphql';
 import { MarketNames } from './types';
 
 @ObjectType()
-class BestMarket {
-  @Field(() => MarketNames, { nullable: true })
-  name: MarketNames;
-
-  @Field(() => Float)
-  usdValue: number;
-}
-
-@ObjectType()
 export class BTC {
   @Field()
   date: string;
@@ -21,9 +12,15 @@ export class BTC {
   @Field(() => [String])
   errorMessageList: string[];
 
-  @Field(() => BestMarket)
-  bestBidsMarket: BestMarket;
+  @Field(() => MarketNames, { nullable: true })
+  bestBidsMarketName: MarketNames | null;
 
-  @Field()
-  bestAsksMarket: string;
+  @Field(() => MarketNames, { nullable: true })
+  bestAsksMarketName: MarketNames | null;
+
+  @Field(() => Float, { nullable: true })
+  bidsUsdValue: number | null;
+
+  @Field(() => Float, { nullable: true })
+  asksUsdValue: number | null;
 }
