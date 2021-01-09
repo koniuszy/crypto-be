@@ -10,7 +10,7 @@ const serverlessConfiguration: AWS = {
     individually: true,
     exclude: ['node_modules/typescript/**', 'node_modules/@types/**'],
   },
-  plugins: ['serverless-offline'],
+  plugins: ['serverless-offline', 'serverless-plugin-typescript'],
   provider: {
     name: 'aws',
     runtime: 'nodejs12.x',

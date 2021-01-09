@@ -8,10 +8,10 @@
     "allowSyntheticDefaultImports": true,
     "target": "es2017",
     "sourceMap": true,
-    "outDir": "./dist",
+    "outDir": ".build",
     "baseUrl": "./",
-    "incremental": true
+    "skipLibCheck": true,
   },
   "exclude": ["node_modules", "dist", ".build"],
-  "include": ["src", "serverless.ts"]
+  "include": ["src", "serverless.ts"],
 }
