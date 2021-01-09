@@ -11,7 +11,8 @@ global.fetch = require('node-fetch');
     RestModule,
     BTCModule,
     GraphQLModule.forRoot({
-      autoSchemaFile: 'src/schema.gql',
+      autoSchemaFile:
+        process.env.NODE === 'production' ? 'src/schema.gql' : true,
       sortSchema: true,
     }),
   ],
