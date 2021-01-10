@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
 import { BTC } from './btc.model';
+import { MarketNames } from './types';
 
 import getBinanceData from './lib/binance';
 import getCoinbaseData from './lib/coinbase';
@@ -37,6 +38,7 @@ export class BTCService {
       date,
       btcAmount,
       errorMessageList,
+      markets: Object.keys(MarketNames).map((key) => MarketNames[key]),
       bestBidsMarketName: bestBidsMarket ? bestBidsMarket.name : null,
       bestAsksMarketName: bestAsksMarket ? bestAsksMarket.name : null,
       bidsUsdValue: bestBidsMarket ? bestBidsMarket.usdBidsValue : null,

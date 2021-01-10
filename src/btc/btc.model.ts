@@ -12,6 +12,9 @@ export class BTC {
   @Field(() => [String])
   errorMessageList: string[];
 
+  @Field(() => [MarketNames])
+  markets: MarketNames[];
+
   @Field(() => MarketNames, { nullable: true })
   bestBidsMarketName: MarketNames | null;
 

@@ -49,11 +49,13 @@ export function getOrderBookValues({
   orderBookValueList,
 }: {
   btcAmount: number;
-  orderBookValueList: string[][] | number[][];
+  orderBookValueList: string[][] | number[][] | null;
 }): [number, number] {
   let usdValue = 0;
   let btcSum = 0;
   let index = 0;
+
+  if (!orderBookValueList?.length) return [0, 0];
 
   while (btcSum < btcAmount && index < orderBookValueList.length) {
     const [stringPrice, stringAmount] = orderBookValueList[index];
