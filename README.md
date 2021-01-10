@@ -1,7 +1,3 @@
-# Goal
-
-![alt text](https://github.com/koniuszy/crypto-fe/blob/main/task.png?raw=true)
-
 ## Requirements
 
 - Node
